@@ -1,6 +1,6 @@
 # 📱 Phone_Gen
 
-> A global phone number generator for developers and testers — supporting 50+ countries and 6 service types.
+> A global phone number generator for developers and testers — supporting 150+ countries, 8 regions and 6 service types.
 
 ![Phone_Gen Demo](./demo.gif)
 
@@ -8,18 +8,20 @@
 
 ## 🌍 Overview
 
-**Phone_Gen** is a sleek, developer-focused tool that generates realistic phone numbers for any country in the world. Built for QA testing, database seeding, UI mockups, and development environments where real phone numbers shouldn't be used.
+**Phone_Gen** is a dev tool that generates realistic phone numbers for any country in the world. Built for QA testing, database seeding, and development environments where real phone numbers shouldn't be used.
 
 ---
 
 ## ✨ Features
 
-- 🌐 **50+ countries** with accurate dial codes, formats, and digit lengths
+- 🌐 **150+ countries** with accurate dial codes, formats and digit lengths
+- 🗺️ **8 regions** — North America, Latin America, Western Europe, Eastern Europe, Middle East, Africa, Asia Pacific
 - 📋 **6 service types** — Mobile, Landline, Toll-Free, Premium, VoIP, Paging
+- 🔍 **Region filter** to quickly narrow down the country dropdown
 - ⚡ **Bulk generation** — up to 10,000 numbers at once
 - 🔀 **Mix mode** — randomly blend all service types in one batch
-- 📊 **Breakdown panel** — visual breakdown of generated number types
-- 💾 **Export to TXT or CSV** with country and service metadata
+- 📊 **Breakdown panel** — visual bar chart of generated number types
+- 💾 **Export to TXT or CSV** with country, region and service metadata
 - ⎘ **Copy to clipboard** in one click
 - 🖥️ Clean terminal-inspired dark UI
 
@@ -27,11 +29,36 @@
 
 ## 🖼️ Screenshots
 
-> _Add your screenshots here after taking them_
-
 | Country Selector | Bulk Generation | Export |
 |---|---|---|
 | ![](./screenshots/screenshot-1.png) | ![](./screenshots/screenshot-2.png) | ![](./screenshots/screenshot-3.png) |
+
+---
+
+## 🗺️ Supported Regions & Countries
+
+| Region | Countries |
+|---|---|
+| 🌎 North America | United States, Canada, Mexico |
+| 🌎 Latin America | Brazil, Argentina, Colombia, Chile, Peru, Venezuela, Ecuador, Bolivia, Paraguay, Uruguay, Cuba, Dominican Republic, Guatemala, Costa Rica, Panama, Jamaica, Trinidad and Tobago, Honduras, El Salvador, Nicaragua |
+| 🌍 Western Europe | United Kingdom, France, Germany, Spain, Italy, Netherlands, Belgium, Sweden, Norway, Denmark, Finland, Switzerland, Austria, Portugal, Ireland, Greece, Luxembourg, Malta, Iceland, Cyprus |
+| 🌍 Eastern Europe | Russia, Poland, Ukraine, Romania, Czech Republic, Hungary, Bulgaria, Serbia, Croatia, Slovakia, Belarus, Moldova, Albania, Bosnia and Herzegovina, North Macedonia, Slovenia, Estonia, Latvia, Lithuania |
+| 🌍 Middle East | Saudi Arabia, UAE, Israel, Turkey, Iran, Iraq, Jordan, Lebanon, Kuwait, Qatar, Bahrain, Oman, Yemen, Syria, Palestine |
+| 🌍 Africa | Nigeria, South Africa, Kenya, Egypt, Ethiopia, Tanzania, Ghana, Uganda, Morocco, Algeria, Tunisia, Cameroon, Ivory Coast, Senegal, Angola, Mozambique, Madagascar, Zambia, Zimbabwe, Rwanda, Botswana, Namibia, Mali, Burkina Faso, Sudan, Liberia |
+| 🌏 Asia Pacific | China, India, Japan, South Korea, Australia, Indonesia, Pakistan, Bangladesh, Vietnam, Thailand, Malaysia, Philippines, Singapore, New Zealand, Sri Lanka, Nepal, Myanmar, Cambodia, Taiwan, Hong Kong, Macau, Mongolia, Kazakhstan, Uzbekistan, Azerbaijan, Georgia, Armenia, Kyrgyzstan, Papua New Guinea, Fiji |
+
+---
+
+## 📋 Supported Service Types
+
+| Type | Icon | Description | Example |
+|---|---|---|---|
+| Mobile | 📱 | Cellular numbers with real carrier prefixes | `+1 917 XXX XXXX` |
+| Landline | ☎️ | Geographic area-code fixed lines | `+44 20 XXXX XXXX` |
+| Toll-Free | 🆓 | Free-to-call 800/1800 numbers | `+1 800 XXX XXXX` |
+| Premium | 💎 | Pay-per-call 900 rate numbers | `+1 900 XXX XXXX` |
+| VoIP | 💻 | Internet-based phone numbers | `+33 9X XX XX XX` |
+| Paging | 📟 | Pager/beeper numbers | `+1 638 XXX XXXX` |
 
 ---
 
@@ -56,10 +83,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/phone-gen.git
+git clone https://github.com/RachidBoutaguiout/Phone_gen.git
 
 # Navigate into the project
-cd phone-gen
+cd Phone_gen
 
 # Install dependencies
 npm install
@@ -82,12 +109,13 @@ Output will be in the `dist/` folder, ready to deploy.
 
 ## 📖 How to Use
 
-1. **Select a country** from the searchable dropdown
-2. **Choose a service type** — Mobile, Landline, Toll-Free, Premium, VoIP, or Paging
-3. **Set the quantity** — type a number or use the quick-select buttons (1 / 10 / 100 / 1000)
-4. **Toggle Mix mode** to generate numbers across all service types randomly
-5. **Click Generate** ⚡
-6. **Export** as `.txt` or `.csv`, or copy to clipboard
+1. **Filter by region** using the region buttons to narrow down the list
+2. **Select a country** from the searchable dropdown
+3. **Choose a service type** — Mobile, Landline, Toll-Free, Premium, VoIP, or Paging
+4. **Set the quantity** — type a number or use the quick-select buttons (1 / 10 / 100 / 1000)
+5. **Toggle Mix mode** to generate numbers across all service types randomly
+6. **Click Generate** ⚡
+7. **Export** as `.txt` or `.csv`, or copy all to clipboard
 
 ---
 
@@ -97,26 +125,18 @@ Output will be in the `dist/` folder, ready to deploy.
 phone-gen/
 ├── public/
 ├── src/
-│   ├── App.jsx        # Main component (all logic + UI)
+│   ├── App.jsx        # Main component — all logic + UI + country data
 │   ├── main.jsx       # React entry point
 │   └── index.css      # Global reset styles
+├── screenshots/
+│   ├── screenshot-1.png
+│   ├── screenshot-2.png
+│   └── screenshot-3.png
+├── demo.gif
 ├── index.html
 ├── vite.config.js
 └── README.md
 ```
-
----
-
-## 🗺️ Supported Service Types
-
-| Type | Description | Example |
-|---|---|---|
-| 📱 Mobile | Cellular numbers with real carrier prefixes | `+1 917 XXX XXXX` |
-| ☎️ Landline | Geographic area-code fixed lines | `+44 20 XXXX XXXX` |
-| 🆓 Toll-Free | Free-to-call 800/1800 numbers | `+1 800 XXX XXXX` |
-| 💎 Premium | Pay-per-call 900 rate numbers | `+1 900 XXX XXXX` |
-| 💻 VoIP | Internet-based phone numbers | `+33 9X XX XX XX` |
-| 📟 Paging | Pager/beeper numbers | `+1 638 XXX XXXX` |
 
 ---
 
@@ -133,7 +153,7 @@ This project is licensed under the **MIT License**.
 ```
 MIT License
 
-Copyright (c) 2026 YOUR_NAME
+Copyright (c) 2026 Rachid Boutaguiout
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -156,4 +176,4 @@ SOFTWARE.
 
 ---
 
-<p align="center">Built with ❤️ by <a href="https://github.com/YOUR_USERNAME">YOUR_NAME</a></p>
+<p align="center">Built with ❤️ by <a href="https://github.com/RachidBoutaguiout">Rachid Boutaguiout</a></p>
